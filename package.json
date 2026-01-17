@@ -1,0 +1,34 @@
+{
+  "name": "costcontrol",
+  "version": "1.0.0",
+  "description": "Agent Inteligent de Cost Control în Construcții",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder -w"
+  },
+  "build": {
+    "appId": "com.jack.costcontrol",
+    "productName": "Cost Control Agent",
+    "win": {
+      "target": [
+        "nsis",
+        "portable",
+        "msi"
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "keywords": [],
+  "author": "Ionel Jupanu",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^33.3.0",
+    "electron-builder": "^25.1.0"
+  }
+}

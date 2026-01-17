@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost Control Agent - Expert Construcții</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Login Overlay -->
+    <div id="login-overlay" class="login-overlay">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="assets/icon.png" alt="Logo">
+                <h2>Bun venit la CostControl</h2>
+                <p>Te rog introdu numele tău pentru a începe sesiunea de consultanță.</p>
+            </div>
+            <div class="login-form">
+                <input type="text" id="username-input" placeholder="Numele tău complet..." autofocus>
+                <button id="login-btn" class="btn btn-primary">Intră în aplicație</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="assets/icon.png" alt="Logo" id="app-logo">
+                <span>CostControl <small>v1.0</small></span>
+            </div>
+
+            <nav class="nav-menu">
+                <button class="nav-item active" data-tab="chat">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                    </svg>
+                    Chat Expert
+                </button>
+                <button class="nav-item" data-tab="history">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Istoric Proiecte
+                </button>
+            </nav>
+
+            <div class="settings-panel">
+                <h3>Configurare AI</h3>
+                <div class="setting-group">
+                    <label for="model-select">Model Ollama</label>
+                    <select id="model-select">
+                        <option value="llama3">Llama 3</option>
+                        <option value="mistral">Mistral</option>
+                        <option value="qwen2">Qwen 2</option>
+                    </select>
+                </div>
+                <div class="connection-status">
+                    <span class="status-dot disconnected" id="status-dot"></span>
+                    <span id="status-text">Ollama deconectat</span>
+                </div>
+            </div>
+
+            <div class="user-info">
+                <div class="avatar">IJ</div>
+                <div class="details">
+                    <p class="name">Ionel Jupanu</p>
+                    <p class="role">Specialist Cost Control</p>
+                </div>
+                <button id="logout-btn" class="logout-btn" title="Schimbă utilizatorul">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-info">
+                    <h1>Expert Management Costuri</h1>
+                    <p>Asistent inteligent pentru șantiere din România</p>
+                </div>
+                <div class="actions">
+                    <button class="btn btn-secondary" id="clear-chat">Curăță Chat</button>
+                </div>
+            </header>
+
+            <div class="chat-wrapper">
+                <div id="chat-messages" class="chat-messages">
+                    <div class="message system">
+                        <div class="message-content">
+                            Bună ziua! Sunt asistentul tău expert în managementul costurilor. Te pot ajuta cu analize de
+                            bugete, comparări de devize, identificarea riscurilor și optimizări financiare conform
+                            normativelor din România.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <div class="input-container">
+                        <textarea id="user-input"
+                            placeholder="Întreabă despre devize, antemăsurători, indici CPI/SPI..." rows="1"></textarea>
+                        <button id="send-btn" class="send-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="input-hint">Modelele locale Ollama rulează pe stația ta de lucru.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+
+</html>
